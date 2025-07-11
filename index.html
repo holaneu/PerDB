@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Viewer</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body> 
+
+  <main>
+    <div id="app">
+
+      <div id="mainScreen" class="screen">
+
+        <div id="fileSection">
+          <div class="file-input-wrapper">
+            <input type="file" id="fileInput" accept=".json,.txt,.md" />
+          </div>
+          <div id="loadingIndicator" class="loading-indicator">Loading file...</div>
+        </div>
+        
+        <div id="configSection" class="section hidden">
+          <details>
+            <summary>Display Settings</summary>
+            <label>Controls mapping:</label>
+            <div id="mappingControls" class="flex-columns"></div>
+
+            <div class="hr"></div>
+
+            <div class="field-selector-section">
+              <label>Fields visibility (list view):</label>
+              <div id="displayFieldSelector" class="field-selector-grid"></div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="field-selector-section">
+              <label>Fields visibility (detail view):</label>
+              <div id="displayFieldSelectorDetailView" class="field-selector-grid"></div>
+            </div>
+
+            <button id="btnApplyConfiguration">Apply Configuration</button>
+          </details>
+        </div>
+        
+        <div id="controlsSection" class="section hidden">
+          <details>
+            <summary>Search, Filter, Sort</summary>
+            <input type="text" id="searchInput" placeholder="Search..." />
+            <div class="flex-columns" id="filterControls"></div>
+            <div id="sortContainer" class="hidden">
+              <div class="form-row" >
+                <label>Sort by:</label>
+                <select id="sortControl"></select>
+              </div>
+            </div>
+          </details>          
+        </div>
+        
+        <div id="resultsSection" class="hidden">
+          <div id="results"></div>
+        </div>
+      </div>
+
+      <div id="itemViewScreen" class="screen hidden">
+        <div class="screen-header">
+          <button class="back-button" >&larr; Back</button>
+          <h2 id="itemViewTitle"></h2>
+        </div>
+        <div id="itemViewContent" class="item-view-content"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
